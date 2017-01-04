@@ -1,0 +1,11 @@
+{
+  "name": "lab-jonathan",
+  "version": "1.0.0",
+  "description": "lab 15 linked lists",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "jonathand",
+  "license": "ISC"
+}
