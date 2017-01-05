@@ -12,8 +12,9 @@ describe('Double Linked List', function() {
       expect(dll.head).to.equal(null);
       dll.prepend(25);
       expect(dll.head.val).to.equal(25);
-    })
+    });
     it('should add a new node as SLL.head; existing nodes in .next chain', function() {
 
-    })
-  })
+    });
+  });
+});

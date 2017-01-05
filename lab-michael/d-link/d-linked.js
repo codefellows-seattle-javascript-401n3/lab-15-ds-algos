@@ -65,4 +65,40 @@ DoubleLinkedList.prototype.removeTail = function() {
   return lastNode.val;
 };
 
+DoubleLinkedList.prototype.reverse = function() {
+  let currentNode;
+  if (this.head === null) {
+    return;
+  }
+  currentNode = this.head;
+
+  while(currentNode != null){
+    let temp = currentNode.next;
+    currentNode.next = currentNode.prev;
+    currentNode.prev = temp;
+    currentNode = currentNode.prev;
+    console.log(currentNode);
+    // return currentNode;
+  }
+};
+
+var list = new DoubleLinkedList();
+// list.prepend(new Node(4));
+// console.log(list.prepend(new Node(4)));
+list.prepend(new Node(3));
+console.log(list.prepend(new Node(3)));
+
+list.prepend(new Node(2));
+console.log(list.prepend(new Node(2)));
+
+list.prepend(new Node(1));
+console.log(list.prepend(new Node(1)));
+
+console.log(list.head);
+list.reverse();
+// console.log(list.reverse());
+console.log(list);
+
+
+
 //(HEAD)[val,prev,next] <=>[val,prev,next] <=> [val,prev,next](TAIL)
