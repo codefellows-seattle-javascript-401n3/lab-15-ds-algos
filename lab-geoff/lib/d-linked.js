@@ -19,8 +19,8 @@ DoublyLinkedList.prototype.append = function(val) {
   return this.tail.val;
 };
 
-DoublyLinkedList.prototype.prepend = function() {
-  let node = new Node();
+DoublyLinkedList.prototype.prepend = function(val) {
+  let node = new Node(val);
   if(!this.head) {
     this.head = node;
     this.tail = node;
@@ -33,11 +33,33 @@ DoublyLinkedList.prototype.prepend = function() {
 };
 
 DoublyLinkedList.prototype.removeFromHead = function() {
-
+  if(!this.head) {
+    return null;
+  }
+  if(!this.head.next) {
+    let val = this.head.val;
+    this.head = null;
+    this.tail = null;
+    return val;
+  }
+  let val = this.head.val;
+  this.head = this.head.next;
+  return val;
 };
 
 DoublyLinkedList.removeFromLastNode = function() {
-
+  if(!this.tail) {
+    return null;
+  }
+  if(!this.tail.prev) {
+    let val = this.tail.val;
+    this.tail = null;
+    this.head = null;
+    return val;
+  }
+  let val = this.tail.val;
+  this.tail = this.tail.prev;
+  return val;
 };
 
 DoublyLinkedList.prototype.reverse = function() {
