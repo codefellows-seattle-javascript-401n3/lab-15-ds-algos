@@ -5,6 +5,7 @@ let expect = require('chai').expect;
 describe('SinglyLinkedList', function() {
   describe('append()', function() {
     let sll = new SLL();
+    let lastNode = null;
     it('should assign a new head when the list is empty', function() {
       expect(sll.head).to.equal(null);
       sll.append(10);
@@ -14,6 +15,12 @@ describe('SinglyLinkedList', function() {
       expect(sll.head.next).to.equal(null);
       sll.append(23);
       expect(sll.head.next.val).to.equal(23);
+      lastNode = sll.head.next;
+    });
+    it('should assign the node to the next value of the last item in the list', function() {
+      expect(lastNode.next).to.equal(null);
+      sll.append(14);
+      expect(lastNode.next.val).to.equal(14);
     });
   });
 });
