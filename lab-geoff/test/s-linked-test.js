@@ -38,5 +38,19 @@ describe('SinglyLinkedList', function() {
       expect(sll.head.val).to.equal(13);
       expect(sll.head.next).to.equal(prevHead);
     });
+    it('should', function() {
+      //
+    });
+  });
+  describe('removeFromHead()',function() {
+    it('should return null when there is no head', function() {
+      //
+    });
+    it('should return the value from the head of the list', function() {
+      //
+    });
+    it('should reassign the new head as the previous head.next', function() {
+      //  
+    });
   });
 });
