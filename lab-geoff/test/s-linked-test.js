@@ -10,8 +10,10 @@ describe('SinglyLinkedList', function() {
       sll.append(10);
       expect(sll.head.val).to.equal(10);
     });
-    it('should assign a value for next', function() {
-      //
+    it('should assign a value for next on the head when the list contains one node', function() {
+      expect(sll.head.next).to.equal(null);
+      sll.append(23);
+      expect(sll.head.next.val).to.equal(23);
     });
   });
 });
