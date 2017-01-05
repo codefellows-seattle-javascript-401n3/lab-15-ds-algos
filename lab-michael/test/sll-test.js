@@ -1,17 +1,19 @@
-const expect = require('chai').expect
-const SLL = require('../s-link/s-linked.js')
+'use strict';
+const expect = require('chai').expect;
+const SLL = require('../s-link/s-linked');
 
-describe('Single Linked List', function() {
+describe('Singly Linked List', function() {
   describe('prepend()', function() {
+    let sll;
     before(() => {
-      let ssl = new SLL()
-    })
+      sll = new SLL();
+    });
     it('should create a new node as SLL.head when list is empty', function() {
-      expect(sll.head).to.equal(null)
-      sll.prepend(25)
-      expect(sll.head.val).to.equal(25)
+      expect(sll.head).to.equal(null);
+      sll.prepend(25);
+      expect(sll.head.val).to.equal(25);
     })
-    it('should add a new node as SLL.head; existing nodes in next chain', function() {
+    it('should add a new node as SLL.head; existing nodes in .next chain', function() {
 
     })
   })
