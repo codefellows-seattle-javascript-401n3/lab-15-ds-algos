@@ -1,4 +1,4 @@
-const Node = require('../node')
+const Node = require('./single-node')
 
 const SinglyLinkedList = module.exports = function(arr) {
   this.head = null

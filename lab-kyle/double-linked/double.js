@@ -66,3 +66,28 @@ doublyLinkedList.prototype.removeFromTail = function() {
   this.tail.next = null
   return node.val
 }
+
+doublyLinkedList.prototype.reverse = function() {
+  if(!this.head) return null
+
+  let node = this.head
+
+  if (!node.next) {
+    return node.val
+  }
+
+  _reversePointers(node)
+
+  function _reversePointers(node) {
+    if (node) {
+      let prevHolder = this.prev //hold the nodes prev val
+      this.prev = this.next      // reasign node.prev to node.next
+      this.next = prevHolder     // reasing node.next to original val of node.prev
+      _reversePointers(node.prev)
+    }
+  }
+
+  this.head = this.tail
+  this.tail = node
+  return this.head
+}
