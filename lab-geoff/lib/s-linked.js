@@ -37,11 +37,14 @@ SinglyLinkedList.prototype.prepend = function(val) {
   this.head = node;
   return this.head.val;
 };
-
-// SinglyLinkedList.prototype.removeFromHead = function() {
-//
-// };
-//
+SinglyLinkedList.prototype.removeFromHead = function() {
+  if(!this.head) {
+    return null;
+  }
+  let val = this.head.val;
+  this.head = this.head.next;
+  return val;
+};
 // SinglyLinkedList.prototype.removeFromLastNode = function() {
 //
 // };
