@@ -36,7 +36,7 @@ DoublyLinkedList.prototype.append = function(val) {
 };
 
 DoublyLinkedList.prototype.removeFromHead = function(){
-  if(!head) return null;
+  if(!this.head) return null;
   if(!this.head.next){
     let nodeHead = this.head;
     this.head = null;
@@ -48,7 +48,7 @@ DoublyLinkedList.prototype.removeFromHead = function(){
 };
 
 DoublyLinkedList.prototype.removeFromTail = function(){
-  if(!tail){
+  if(!this.tail){
     return null;
   }
   if(!this.tail.prev){
@@ -63,10 +63,10 @@ DoublyLinkedList.prototype.removeFromTail = function(){
 };
 
 DoublyLinkedList.prototype.reverse = function(){
-  if(!head){
+  if(!this.head){
     return null;
   }
-  if(!tail){
+  if(!this.tail){
     return null;
   }
   let tempHead = this.head.val;
