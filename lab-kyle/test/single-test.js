@@ -45,5 +45,47 @@ describe('Singly Linked List', function() {
     })
   })
 
-  describe()
+  describe('removeFromHead()', function() {
+    let sll
+    before(() => {
+      sll = new SLL()
+    })
+    it('should return null if the list is empty', function() {
+      expect(sll.head).to.equal(null)
+    })
+    it('should remove the sll.head node and return its value', function() {
+      expect(sll.head).to.equal(null)
+      sll.append(1)
+      let val = sll.removeFromHead()
+      expect(val).to.equal(1)
+      expect(sll.head).to.equal(null)
+    })
+    it('should update the new sll.head to the original heads next value', function() {
+      sll.append(5)
+      sll.append(10)
+      sll.removeFromHead()
+      expect(sll.head.val).to.equal(10)
+    })
+  })
+
+  describe('removeLastNode()', function() {
+    let sll
+    before(() => {
+      sll = new SLL()
+    })
+    it('should return null if the list is empty', function() {
+      expect(sll.head).to.equal(null)
+    })
+    it('should remove the last node in the list', function() {
+      sll.append(1)
+      sll.append(2)
+      sll.removeLastNode()
+      expect(sll.head.next).to.equal(null)
+    })
+    it('should return the value of the last node', function() {
+      sll.append(1)
+      let val = sll.removeLastNode()
+      expect(val).to.equal(1)
+    })
+  })
 })
