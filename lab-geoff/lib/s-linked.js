@@ -9,7 +9,7 @@ let SinglyLinkedList = module.exports = function(arr) {
     });
   }
 };
-//(head)[next val][next val]
+
 SinglyLinkedList.prototype.append = function(val) {
   let node = new Node(val);
   let lastNode = null;
@@ -27,16 +27,18 @@ SinglyLinkedList.prototype.append = function(val) {
     _setLastNode(_node.next);
   }
 };
+
 SinglyLinkedList.prototype.prepend = function(val) {
   let node = new Node(val);
   if(!this.head) {
     this.head = node;
     return this.head.val;
   }
-  node.next = this.head; //not working here
+  node.next = this.head;
   this.head = node;
   return this.head.val;
 };
+
 SinglyLinkedList.prototype.removeFromHead = function() {
   if(!this.head) {
     return null;
@@ -45,6 +47,23 @@ SinglyLinkedList.prototype.removeFromHead = function() {
   this.head = this.head.next;
   return val;
 };
-// SinglyLinkedList.prototype.removeFromLastNode = function() {
-//
-// };
+
+SinglyLinkedList.prototype.removeFromLastNode = function() {
+  let secToLast = null;
+  if(!this.head) {
+    return null;
+  }
+  _setSecondToLastNode(this.head);
+  let val = secToLast.next.val;
+  secToLast.next = null;
+  return val;
+
+  function _setSecondToLastNode(_node) {
+    if(!_node.next) {
+      secToLast = _node;
+      return;
+    }
+    secToLast = _node;
+    _setSecondToLastNode(_node.next);
+  }
+};
