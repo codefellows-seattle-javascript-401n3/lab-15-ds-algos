@@ -2,7 +2,7 @@
 const expect = require('chai').expect;
 const SLL = require('../s-link/s-linked');
 
-describe('Singly Linked List', function() {
+describe('Single Linked List', function() {
   describe('prepend()', function() {
     let sll;
     before(() => {

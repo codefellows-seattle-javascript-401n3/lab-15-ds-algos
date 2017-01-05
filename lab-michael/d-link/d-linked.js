@@ -35,4 +35,34 @@ DoubleLinkedList.prototype.append = function(val) {
   return node.val;
 };
 
+DoubleLinkedList.prototype.removeHead = function() {
+  if(!this.head) return;
+
+  if(!this.head.next) {
+    let frontNode = this.head;
+    this.head = null;
+    return frontNode.val;
+  }
+
+  let frontNode = this.head;
+  this.head.next = this.head;
+  this.head.prev = null;
+  return frontNode.val;
+};
+
+DoubleLinkedList.prototype.removeTail = function() {
+  if(!this.tail) return;
+
+  if(!this.tail.prev) {
+    let lastNode = this.tail;
+    this.tail = null;
+    return lastNode.val;
+  }
+
+  let lastNode = this.tail;
+  this.tail.prev = this.tail;
+  this.tail.next = null;
+  return lastNode.val;
+};
+
 //(HEAD)[val,prev,next] <=>[val,prev,next] <=> [val,prev,next](TAIL)
