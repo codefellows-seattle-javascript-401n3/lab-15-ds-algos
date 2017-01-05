@@ -1,4 +1,4 @@
-const Node = require('../node')
+const Node = require('./single-node')
 
 const SinglyLinkedList = module.exports = function(arr) {
   this.head = null
@@ -29,7 +29,7 @@ SinglyLinkedList.prototype.append = function(val) {
     return node.val
   }
 
-  _setLastNode(this.head) // sets the lastNode variable to the last node in our list
+  _setLastNode(this.head)
 
   lastNode.next = node
   return node.val
