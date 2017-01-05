@@ -27,11 +27,14 @@ SinglyLinkedList.prototype.append = function(val) {
     _setLastNode(_node.next);
   }
 };
+SinglyLinkedList.prototype.prepend = function(val) {
+  let node = new Node(val);
+  if(!this.head) {
+    this.head = node;
+    return this.head.val;
+  }
+};
 
-// SinglyLinkedList.prototype.prepend = function(val) {
-//
-// };
-//
 // SinglyLinkedList.prototype.removeFromHead = function() {
 //
 // };

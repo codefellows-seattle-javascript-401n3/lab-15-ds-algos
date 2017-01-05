@@ -23,4 +23,12 @@ describe('SinglyLinkedList', function() {
       expect(lastNode.next.val).to.equal(14);
     });
   });
+  describe('prepend()', function() {
+    let sll = new SLL();
+    it('should assign a new head when the list is empty', function() {
+      expect(sll.head).to.equal(null);
+      sll.prepend(36);
+      expect(sll.head.val).to.equal(36);
+    });
+  });
 });
