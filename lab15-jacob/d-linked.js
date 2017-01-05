@@ -37,23 +37,27 @@ DoublyLinkedList.prototype.removeLast = function() {
   if(!this.tail.prev) {
     let tail = this.tail;
     this.tail = null;
+    this.head = null;
     return tail.val;
   }
   let tail = this.tail;
-  this.tail.prev = this.tail;
+  this.tail = null;
+  this.tail = tail.prev;
   this.tail.next = null;
   return tail.val;
 };
 
-DoublyLinkedList.prototype.removeLast = function() {
-  if(!this.front) return;
+DoublyLinkedList.prototype.removeFirst = function() {
+  if(!this.head) return;
   if(!this.head.next) {
     let front = this.head;
     this.head = null;
+    this.tail = null;
     return front.val;
   }
   let front = this.head;
-  this.head.next = this.head;
+  this.head = null;
+  this.head = front.next;
   this.head.prev = null;
   return front.val;
 };
