@@ -1,8 +1,9 @@
-const Node = require('./node')
+const Node = require('./double-node')
 
 const doublyLinkedList = module.exports = function(arr) {
   this.head = null
   this.tail = null
+  if (Array.isArray(arr)) arr.forEach(val => this.append(val)) // lets you pass in an array of values
 }
 
 doublyLinkedList.prototype.prepend = function(val) {
@@ -41,7 +42,7 @@ doublyLinkedList.prototype.removeFromHead = function() {
   let node = this.head
 
   if(!node.next) {
-    this.front = null
+    this.head = null
     this.tail = null
     return node.val
   }
@@ -57,7 +58,7 @@ doublyLinkedList.prototype.removeFromTail = function() {
   let node = this.tail
 
   if (!node.prev) {
-    this.front = null
+    this.head = null
     this.tail = null
     return node.val
   }
@@ -80,7 +81,7 @@ doublyLinkedList.prototype.reverse = function() {
 
   function _reversePointers(node) {
     if (node) {
-      let prevHolder = this.prev //hold the nodes prev val
+      let prevHolder = this.prev // hold the prev node
       this.prev = this.next      // reasign node.prev to node.next
       this.next = prevHolder     // reasing node.next to original val of node.prev
       _reversePointers(node.prev)
