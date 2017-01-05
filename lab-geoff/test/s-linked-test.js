@@ -25,10 +25,18 @@ describe('SinglyLinkedList', function() {
   });
   describe('prepend()', function() {
     let sll = new SLL();
+    let prevHead = null;
     it('should assign a new head when the list is empty', function() {
       expect(sll.head).to.equal(null);
       sll.prepend(36);
       expect(sll.head.val).to.equal(36);
+      prevHead = sll.head;
+    });
+    it('should assign the previous head as the next value for the new head', function() {
+      expect(sll.head).to.equal(prevHead);
+      sll.prepend(13);
+      expect(sll.head.val).to.equal(13);
+      expect(sll.head.next).to.equal(prevHead);
     });
   });
 });

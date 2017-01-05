@@ -33,6 +33,9 @@ SinglyLinkedList.prototype.prepend = function(val) {
     this.head = node;
     return this.head.val;
   }
+  node.next = this.head; //not working here
+  this.head = node;
+  return this.head.val;
 };
 
 // SinglyLinkedList.prototype.removeFromHead = function() {
