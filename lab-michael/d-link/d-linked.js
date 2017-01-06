@@ -90,21 +90,4 @@ DoubleLinkedList.prototype.reverse = function() {
   }
 };
 
-var dll = new DoubleLinkedList();
-
-dll.append(new Node(3));
-console.log(dll.append(new Node(3)));
-
-dll.append(new Node(2));
-console.log(dll.append(new Node(2)));
-
-dll.append(new Node(1));
-console.log(dll.append(new Node(1)));
-console.log(dll);
-dll.reverse();
-console.log(dll);
-console.log(dll.reverse());
-
-
-
 //(HEAD)[val,prev,next] <=>[val,prev,next] <=> [val,prev,next](TAIL)
