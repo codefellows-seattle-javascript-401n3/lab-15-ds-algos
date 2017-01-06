@@ -66,38 +66,44 @@ DoubleLinkedList.prototype.removeTail = function() {
 };
 
 DoubleLinkedList.prototype.reverse = function() {
-  let currentNode;
-  if (this.head === null) {
-    return;
+  if(!this.head) {
+    return null;
   }
-  currentNode = this.head;
+  if(!this.head.next) {
+    return this.head.val;
+  }
+  _reverse(this.head);
 
-  while(currentNode != null){
-    let temp = currentNode.next;
-    currentNode.next = currentNode.prev;
-    currentNode.prev = temp;
-    currentNode = currentNode.prev;
-    console.log(currentNode);
-    // return currentNode;
+  let prevHead = this.head;
+  let prevTail = this.tail;
+  this.head = prevTail;
+  this.tail = prevHead;
+  return this.head.val;
+
+  function _reverse(node) {
+    if(!node) return;
+    let next = node.next;
+    let prev = node.prev;
+    node.next = prev;
+    node.prev = next;
+    _reverse(node.prev);
   }
 };
 
-var list = new DoubleLinkedList();
-// list.prepend(new Node(4));
-// console.log(list.prepend(new Node(4)));
-list.prepend(new Node(3));
-console.log(list.prepend(new Node(3)));
+var dll = new DoubleLinkedList();
 
-list.prepend(new Node(2));
-console.log(list.prepend(new Node(2)));
+dll.append(new Node(3));
+console.log(dll.append(new Node(3)));
 
-list.prepend(new Node(1));
-console.log(list.prepend(new Node(1)));
+dll.append(new Node(2));
+console.log(dll.append(new Node(2)));
 
-console.log(list.head);
-list.reverse();
-// console.log(list.reverse());
-console.log(list);
+dll.append(new Node(1));
+console.log(dll.append(new Node(1)));
+console.log(dll);
+dll.reverse();
+console.log(dll);
+console.log(dll.reverse());
 
 
 
