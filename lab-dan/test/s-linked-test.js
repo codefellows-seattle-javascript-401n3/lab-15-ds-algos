@@ -11,8 +11,9 @@ describe('singly-linked list module', function() {
     it('should create a new node and add to sll.head when list is empty', function() {
       sll.prepend(a)
       expect(sll.head.value).to.equal(a)
-      expect(sll.next).to.be.undefined
+      expect(sll.head.next).to.be.null
     })
+
     it('should create a new node and add to sll.head when list has existing node(s)', function() {
       sll.prepend(b)
       expect(sll.head.value).to.equal(b)
@@ -25,7 +26,7 @@ describe('singly-linked list module', function() {
     it('should create a new node and add to sll.head when list is empty', function() {
       sll.append(a)
       expect(sll.head.value).to.equal(a)
-      expect(sll.next).to.be.undefined
+      expect(sll.head.next).to.be.null
     })
 
     it('should create a new node and add to end of list with existing node', function() {
@@ -40,9 +41,15 @@ describe('singly-linked list module', function() {
     it('should remove the head node and replace it with next', function() {
       expect(sll.removeHead()).to.equal(a)
       expect(sll.head.value).to.equal(b)
+      expect(sll.head.next).to.be.null
     })
+
     it('should remove the head node and set list as null when last node', function() {
       expect(sll.removeHead()).to.equal(b)
+      expect(sll.head).to.be.null
+    })
+
+    it('should return undefined for an empty list', function() {
       expect(sll.removeHead()).to.be.undefined
     })
   })
@@ -52,9 +59,15 @@ describe('singly-linked list module', function() {
     it('should remove the tail node', function() {
       expect(sll.removeTail()).to.equal(b)
       expect(sll.head.value).to.equal(a)
+      expect(sll.head.next).to.be.null
     })
+
     it('should remove the head node and set list as null when last node', function() {
       expect(sll.removeTail()).to.equal(a)
+      expect(sll.head).to.be.null
+    })
+    
+    it('should return undefined for an empty list', function() {
       expect(sll.removeTail()).to.be.undefined
     })
   })
