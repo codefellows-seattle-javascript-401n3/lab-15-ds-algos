@@ -61,6 +61,7 @@ SinglyLinkedList.prototype.removeLastNode = function() {
       node.next = null
       return
     }
+    _findLastNode(node.next)
   }
 
   return lastNode.val
