@@ -2,17 +2,16 @@
 
 const expect = require('chai').expect
 const SinglyLinkedList = require('../lib/single/s-linked')
-let sll = undefined
 let [a, b] = [1, 2]
 
 
 describe('singly-linked list module', function() {
   describe('prepend', function() {
-    sll = new SinglyLinkedList()
+    let sll = new SinglyLinkedList()
     it('should create a new node and add to sll.head when list is empty', function() {
       sll.prepend(a)
       expect(sll.head.value).to.equal(a)
-      expect(sll.head.next).to.be.null
+      expect(sll.next).to.be.undefined
     })
     it('should create a new node and add to sll.head when list has existing node(s)', function() {
       sll.prepend(b)
@@ -22,11 +21,11 @@ describe('singly-linked list module', function() {
   })
 
   describe('append', function() {
-    sll = new SinglyLinkedList()
+    let sll = new SinglyLinkedList()
     it('should create a new node and add to sll.head when list is empty', function() {
       sll.append(a)
       expect(sll.head.value).to.equal(a)
-      expect(sll.head.next).to.be.null
+      expect(sll.next).to.be.undefined
     })
 
     it('should create a new node and add to end of list with existing node', function() {
@@ -37,7 +36,7 @@ describe('singly-linked list module', function() {
   })
 
   describe('removeHead', function() {
-    sll = new SinglyLinkedList([a, b])
+    let sll = new SinglyLinkedList([a, b])
     it('should remove the head node and replace it with next', function() {
       expect(sll.removeHead()).to.equal(a)
       expect(sll.head.value).to.equal(b)
@@ -49,7 +48,7 @@ describe('singly-linked list module', function() {
   })
 
   describe('removeTail', function() {
-    sll = new SinglyLinkedList([a, b])
+    let sll = new SinglyLinkedList([a, b])
     it('should remove the tail node', function() {
       expect(sll.removeTail()).to.equal(b)
       expect(sll.head.value).to.equal(a)

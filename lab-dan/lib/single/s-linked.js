@@ -69,3 +69,14 @@ SinglyLinkedList.prototype.removeTail = function() {
   secondLastNode.next = null
   return val
 }
+
+
+SinglyLinkedList.prototype.print = function() {
+  let currentNode = this.head
+  let string = ''
+  while (currentNode) {
+    string += `|${currentNode.value}| -> `
+    currentNode = currentNode.next
+  }
+  console.log(string)
+}

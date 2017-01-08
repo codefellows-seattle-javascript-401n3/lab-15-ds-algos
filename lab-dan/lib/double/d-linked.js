@@ -5,14 +5,14 @@ const Node = require('./node.js')
 const DoublyLinkedList = module.exports = function(arr) {
   this.head = null
   this.tail = null
-  if(Array.isArray(arr)) {
+  if (Array.isArray(arr)) {
     arr.forEach(val => this.append(val))
   }
 }
 
 DoublyLinkedList.prototype.prepend = function(val) {
   let node = new Node(val)
-  if(!this.head) {
+  if (!this.head) {
     this.head = node
     this.tail = node
     return node.value
@@ -25,7 +25,7 @@ DoublyLinkedList.prototype.prepend = function(val) {
 
 DoublyLinkedList.prototype.append = function(val) {
   let node = new Node(val)
-  if(!this.tail) {
+  if (!this.tail) {
     this.head = node
     this.tail = node
     return node.value
@@ -37,8 +37,8 @@ DoublyLinkedList.prototype.append = function(val) {
 }
 
 DoublyLinkedList.prototype.removeHead = function() {
-  if(!this.head) return
-  if(!this.head.next) {
+  if (!this.head) return
+  if (!this.head.next) {
     let temp = this.head.value
     this.head = null
     this.tail = null
@@ -52,7 +52,13 @@ DoublyLinkedList.prototype.removeHead = function() {
 }
 
 DoublyLinkedList.prototype.removeTail = function() {
-  if(!this.tail) return
+  if (!this.tail) return
+  if (!this.tail.previous) {
+    let temp = this.tail.value
+    this.head = null
+    this.tail = null
+    return temp
+  }
   let prevTail = this.tail
   this.tail = this.tail.previous
   this.tail.next = null
@@ -66,11 +72,20 @@ DoublyLinkedList.prototype.reverse = function() {
   let currentNode = this.tail
   this.head = this.tail
   this.tail = prevHead
-  while(currentNode) {
+  while (currentNode) {
     let prevNode = currentNode.next
     currentNode.next = currentNode.previous
     currentNode.previous = prevNode
     currentNode = currentNode.next
   }
+}
 
+DoublyLinkedList.prototype.print = function() {
+  let currentNode = this.head
+  let string = ''
+  while (currentNode) {
+    string += `|${currentNode.value}| <=> `
+    currentNode = currentNode.next
+  }
+  console.log(string)
 }
