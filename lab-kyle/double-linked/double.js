@@ -81,9 +81,9 @@ doublyLinkedList.prototype.reverse = function() {
 
   function _reversePointers(node) {
     if (node) {
-      let prevHolder = this.prev // hold the prev node
-      this.prev = this.next      // reasign node.prev to node.next
-      this.next = prevHolder     // reasing node.next to original val of node.prev
+      let newNext = node.prev
+      node.prev = node.next
+      node.next = newNext
       _reversePointers(node.prev)
     }
   }
