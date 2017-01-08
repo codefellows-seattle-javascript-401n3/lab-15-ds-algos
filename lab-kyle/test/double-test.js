@@ -87,28 +87,22 @@ describe('A Doubly linked list', function() {
   })
 
   describe('reverse()', function() {
-    let dll
-    before(() => {
-      dll = new DLL()
-      this.dll = dll
-    })
     it('should return null if the list is empty', function() {
-      let val = dll.reverse()
+      let nullDll = new DLL()
+      let val = nullDll.reverse()
       expect(val).to.equal(null)
     })
     it('should return the the new dll.head val', function() {
-      dll.append(1)
-      dll.append(2)
-      dll.append(3)
-      dll.append(4)
+      let dll = new DLL([1, 2, 3, 4])
       expect(dll.head.val).to.equal(1)
       let node = dll.reverse()
       expect(node.val).to.equal(4)
     })
     it('should update the dll.tail to the original dll.head', function() {
-      expect(dll.tail.val).to.equal(1)
-      dll.reverse()
+      let dll = new DLL([1, 2, 3, 4])
       expect(dll.tail.val).to.equal(4)
+      dll.reverse()
+      expect(dll.tail.val).to.equal(1)
     })
   })
 })
