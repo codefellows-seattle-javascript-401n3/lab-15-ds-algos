@@ -78,6 +78,7 @@ DoublyLinkedList.prototype.reverse = function() {
     currentNode.previous = prevNode
     currentNode = currentNode.next
   }
+  return this.head
 }
 
 DoublyLinkedList.prototype.print = function() {
