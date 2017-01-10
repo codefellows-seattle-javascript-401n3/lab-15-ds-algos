@@ -1,3 +1,5 @@
+'use strict';
+
 const Node = require('./snode');
 
 const SinglyLinkedList = module.exports = function(arr) {

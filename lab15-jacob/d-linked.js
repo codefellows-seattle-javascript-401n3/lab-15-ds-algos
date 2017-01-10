@@ -1,3 +1,5 @@
+'use strict';
+
 const Node = require('./dnode');
 
 const DoublyLinkedList = module.exports = function() {
