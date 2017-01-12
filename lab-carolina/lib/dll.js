@@ -39,12 +39,15 @@ DoublyLinkedList.prototype.append = function(val) {
 
 DoublyLinkedList.prototype.removeFromHead = function() {
   if (!this.head) return null;
+
   let node = this.head;
+
   if(!node.next) {
-    this.front = null;
+    this.head = null;
     this.tail = null;
     return node.val;
   }
+
   this.head = node.next;
   this.head.prev = null;
   return node.val;
@@ -52,12 +55,15 @@ DoublyLinkedList.prototype.removeFromHead = function() {
 
 DoublyLinkedList.prototype.removeFromTail = function() {
   if (!this.tail) return null;
+
   let node = this.tail;
+
   if (!node.prev) {
-    this.front = null;
+    this.head = null;
     this.tail = null;
     return node.val;
   }
+
   this.tail = node.prev;
   this.tail.next = null;
   return node.val;
