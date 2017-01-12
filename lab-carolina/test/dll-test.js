@@ -139,4 +139,44 @@ describe('Doubly Linked List', function() {
       expect(dll.tail.next).to.equal(null);
     });
   });
+
+  describe('testing reverse() method', function(){
+    let dll;
+    before(() => {
+      dll = new DLL();
+    });
+
+    it('should return null if the list is empty', function(){
+      expect(dll.head).to.equal(null);
+    });
+
+    it('should reverse the order of nodes', function(){
+      dll.append(1);
+      dll.append(2);
+      dll.append(3);
+      dll.reverse();
+      expect(dll.head.val).to.equal(3);
+      expect(dll.tail.val).to.equal(1);
+      expect(dll.head.next.val).to.equal(2);
+      expect(dll.head.next.next.val).to.equal(1);
+      expect(dll.tail.prev.val).to.equal(2);
+      expect(dll.tail.prev.prev.val).to.equal(3);
+      expect(dll.head.prev).to.equal(null);
+      expect(dll.tail.next).to.equal(null);
+    });
+
+    it('should re-reverse the order if called again', function(){
+      expect(dll.head.val).to.equal(3);
+      expect(dll.tail.val).to.equal(1);
+      dll.reverse();
+      expect(dll.head.val).to.equal(1);
+      expect(dll.tail.val).to.equal(3);
+      expect(dll.head.next.val).to.equal(2);
+      expect(dll.tail.prev.val).to.equal(2);
+      expect(dll.head.next.next.val).to.equal(3);
+      expect(dll.tail.prev.prev.val).to.equal(1);
+    });
+
+  });
+
 });

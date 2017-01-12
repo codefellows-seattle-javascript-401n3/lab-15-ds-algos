@@ -68,3 +68,25 @@ DoublyLinkedList.prototype.removeFromTail = function() {
   this.tail.next = null;
   return node.val;
 };
+
+DoublyLinkedList.prototype.reverse = function(){
+  if(!this.head) return null; //if there is no head, return null for empty list
+  if(!this.head.next) return this.head; //if there is no head.next return the head val/not enough nodes to reverse
+
+  let node = this.head;//save the current head to a var
+  let currTail = this.tail;//save the current tail to a var
+  this.head = currTail;//swap the current head with the tail val
+  this.tail = node;//swap the current tail with the head val
+
+  _reverse(node);
+
+  function _reverse(node) {
+    if(!node) return; //if there is no node, do not continue on
+    let nodePrev = node.prev; //save the current node's prev val to a var
+    let nodeNext = node.next;//save the current node's next val to a var
+    node.prev = nodeNext;//swap the current node's prev val with the it's next
+    node.next = nodePrev;//swap the current node's next val with it's prev
+    _reverse(node.prev);//do it again!
+  }
+  return this.head; //return the head value
+};
