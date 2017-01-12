@@ -49,13 +49,19 @@ SinglyLinkedList.prototype.removeFromHead = function() {
 
 SinglyLinkedList.prototype.removeLastNode = function() {
   let lastNode = null;
+
   if (!this.head) return null;
+
   _findLastNode(this.head);
+
   function _findLastNode(node) {
-    if (!node.next.next)
+    if (!node.next.next) {
       lastNode = node.next;
-    node.next = null;
-    return;
+      node.next = null;
+      return;
+    }
+    _findLastNode(node.next);
   }
+
   return lastNode.val;
 };
