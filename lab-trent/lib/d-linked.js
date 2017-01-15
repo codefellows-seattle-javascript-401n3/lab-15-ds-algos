@@ -36,3 +36,15 @@ DoublyLinkedList.prototype.append = function(val) {
   this.tail = node;
   return node.val;
 };
+
+DoublyLinkedList.prototype.reverse = function() {
+  let itr = this.head;
+  let prev = null;
+  while(itr) {
+    let tmp = itr.next;
+    itr.next = prev;
+    prev = itr;
+    itr = tmp;
+  }
+  this.head = prev;
+};
