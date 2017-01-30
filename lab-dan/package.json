@@ -1,0 +1,18 @@
+{
+  "name": "linked_lists",
+  "version": "1.0.0",
+  "description": "Implementation of singly and doubly linked lists",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Dan Peters",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  }
+}
