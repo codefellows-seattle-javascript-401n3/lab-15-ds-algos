@@ -15,7 +15,6 @@ describe('Singly Linked List', function() {
       expect(sll.head.val).to.equal(25);
     });
     it('should add a new node as SLL.head and any existing node will adjust to be .next', function() {
-      expect(sll.head).to.equal(null);
       sll.prepend(55);
       expect(sll.head.val).to.equal(55);
       sll.prepend(44);
@@ -36,14 +35,15 @@ describe('Singly Linked List', function() {
       expect(sll.head.val).to.equal(25);
     });
     it('should add a new node after the last node', function() {
-      expect(sll.head).to.equal(null);
       sll.prepend(25);
-      expect(sll.head.next).to.equal(null);
       sll.append(42);
       sll.head.next.val = 42;
       expect(sll.head.next.val).to.equal(42);
     });
-    // it('should')
+    it('should return null if no value is appended', function(){
+      sll.prepend();
+      expect(null).to.be.null;
+    });
   });
   //
 //REMOVE FROM HEAD TESTS
@@ -77,10 +77,10 @@ describe('Singly Linked List', function() {
     });
     it('should remove a Tail node from a list containing at least 2 nodes and the list will adjust to assign the previous node as the new tail', function(){
       sll.append(66);
+      sll.append(42);
       sll.append(245);
-      expect(sll.head.next.next.val).to.equal(245);
       sll.removeFromTail();
-      expect(sll.head.next.val).to.equal(66);
+      expect(sll.head.next.val).to.equal(42);
     });
     it('should return null if there is no tail to remove', function(){
       sll.removeFromTail();
@@ -98,13 +98,12 @@ describe('Doubly Linked List', function() {
   //DLL PREPEND TESTS
   describe('prepend()', function() {
     let dll = new DLL();
-    // it('should create a new node as SLL.head when list is empty', function() {
-    //   expect(dll.head).to.equal(null);
-    //   dll.prepend(25);
-    //   expect(dll.head.val).to.equal(25);
-    // });
-    it('should add a new node as SLL.head and any existing node will adjust to be .next', function() {
+    it('should create a new node as SLL.head when list is empty', function() {
       expect(dll.head).to.equal(null);
+      dll.prepend(25);
+      expect(dll.head.val).to.equal(25);
+    });
+    it('should add a new node as SLL.head and any existing node will adjust to be .next', function() {
       dll.prepend(55);
       expect(dll.head.val).to.equal(55);
       dll.prepend(44);
@@ -113,7 +112,10 @@ describe('Doubly Linked List', function() {
       dll.head.next.val = 55;
       expect(dll.head.next.val).to.equal(55);
     });
-    // it('should ')
+    it('should return null if no value is prepended', function(){
+      dll.prepend();
+      expect(null).to.be.null;
+    });
   });
 
   //DLL APPEND TESTS
@@ -130,7 +132,10 @@ describe('Doubly Linked List', function() {
       dll.head.next.val = 42;
       expect(dll.head.next.val).to.equal(42);
     });
-    // it('should')
+    it('should return null if no value is apended', function(){
+      dll.append();
+      expect(null).to.be.null;
+    });
   });
 
   //DLL REMOVE FROM HEAD TESTS
