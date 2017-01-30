@@ -1,0 +1,20 @@
+{
+  "name": "linked-lists",
+  "version": "1.0.0",
+  "description": "JavaScript implementations of different variations of linked lists.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Trenton Kress",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^3.0.1",
+    "gulp-mocha": "^3.0.1",
+    "mocha": "^3.1.2"
+  },
+  "dependencies": {
+  }
+}
